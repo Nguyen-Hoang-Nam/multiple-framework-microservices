@@ -1,5 +1,6 @@
 FROM golang:1.16.8-alpine3.14
 WORKDIR /app
+ENV GIN_MODE=release
 COPY wait-for-it.sh wait-for-it
 RUN set -eux &&\
     apk --update add --no-cache bash coreutils &&\

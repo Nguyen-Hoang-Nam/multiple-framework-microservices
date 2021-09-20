@@ -27,6 +27,7 @@ def hello(framework):
     url = eureka_client.walk_nodes(framework, "/", walker=lambda a: a)
     json = {"name": "FastAPI"}
 
+    print(url)
     response = requests.post(url, json=json)
     data = response.json()
     return data

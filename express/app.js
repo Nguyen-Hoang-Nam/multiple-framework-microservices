@@ -6,7 +6,7 @@ const Eureka = require("eureka-js-client").Eureka;
 const client = new Eureka({
     instance: {
         app: "express",
-        hostName: "localhost",
+        hostName: "express",
         ipAddr: "0.0.0.0",
         vipAddress: "express",
         instanceId: "express:8003",
@@ -20,7 +20,7 @@ const client = new Eureka({
         },
     },
     eureka: {
-        host: "localhost",
+        host: "eureka",
         port: 9000,
         servicePath: "/eureka/apps/",
     },
@@ -44,8 +44,7 @@ app.get("/hello/:frameowork", (req, res) => {
     const framework = req.params.frameowork;
     const service = client.getInstancesByAppId(framework)[0];
 
-    // const hostname = service.hostName;
-    const hostname = "localhost";
+    const hostname = service.hostName;
     const port = service.port["$"];
 
     const url = "http://" + hostname + ":" + port;
