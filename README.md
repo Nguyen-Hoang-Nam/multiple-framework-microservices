@@ -4,16 +4,22 @@ This is the Microservices' template for several web frameworks.
 
 Currently, some services can not change such as discovery service (Eureka).
 
+![Eureka](https://raw.githubusercontent.com/Nguyen-Hoang-Nam/readme-image/main/multiple-framework-microservices/eureka.jpg)
+
 ## Installation
 
 ```bash
 docker-compose up -d
 ```
 
+![Screenshot](https://raw.githubusercontent.com/Nguyen-Hoang-Nam/readme-image/main/multiple-framework-microservices/multiple-framework-microservices.jpg)
+
 ## Usage
 
 You can send request between 2 services with this route
-`http://localhost:<current-service-port>/hello<other-service>`
+`http://localhost:<current-service-port>/hello/<other-service>`
+
+![Route](https://raw.githubusercontent.com/Nguyen-Hoang-Nam/readme-image/main/multiple-framework-microservices/route.jpg)
 
 ## Services
 
@@ -21,93 +27,93 @@ You can send request between 2 services with this route
 
 This is the core service which other services must support
 
-hostname: eureka
+**hostname:** eureka
 
-port: 9000
+**port:** 9000
 
-route:
+**route:**
 
 - GET: localhost:9000
 
 ### Spring Boot
 
-hostname: spring
+**hostname:** spring
 
-port: 8000
+**port:** 8000
 
-route:
+**route:**
 
 - GET: localhost:8000/hello/{other service}
 
-pros:
+**pros:**
 
 - Work natively with Eureka, Zuul, etc
 - Focus on business logic instead of configuration
 - Rich microservices' documentation
 
-cons:
+**cons:**
 
 - High memory usage
 - Large docker image size
 
 ### FastAPI
 
-hostname: fastapi
+**hostname:** fastapi
 
-port: 8001
+**port:** 8001
 
-route:
+**route:**
 
 - GET: localhost:8001/hello/{other service}
 
-pros:
+**pros:**
 
 - Low memory usage (25 MB)
 - Tiny docker image size
 - Write less code to work with Eureka
 
-cons:
+**cons:**
 
 - Hard to find microservice's documentation
 
 ### Gin
 
-hostname: gin
+**hostname:** gin
 
-port: 8002
+**port:** 8002
 
-route:
+**route:**
 
 - GET: localhost:8002/hello/{other service}
 
-pros:
+**pros:**
 
 - Use less dependencies
 - Focus on business logic
 - Rich microservices' documentation
 - Extremely low memory (5 MB)
 
-cons:
+**cons:**
 
 - Large docker image size
 
 ### Express.JS
 
-hostname: express
+**hostname:** express
 
-port: 8003
+**port:** 8003
 
-route:
+**route:**
 
 - GET: localhost:8003/hello/{other service}
 
-pros:
+**pros:**
 
 - Lower memory usage than FastAPI (20 MB)
 - Work natively with JSON
 - Medium docker image size
 
-cons:
+**cons:**
 
 - Not much microservices' documentation
 
