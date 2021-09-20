@@ -9,15 +9,15 @@ services:
     ports:
       - 9000:9000
 
-  spring:
-    build:
-      context: ./spring
-      dockerfile: ./Dockerfile
-    image: mlm-spring
-    ports:
-      - 8000:8000
-    depends_on:
-      - eureka
+  # spring:
+  #   build:
+  #     context: ./spring
+  #     dockerfile: ./Dockerfile
+  #   image: mlm-spring
+  #   ports:
+  #     - 8000:8000
+  #   depends_on:
+  #     - eureka
 
   fastapi:
     build:
@@ -29,12 +29,12 @@ services:
     depends_on:
       - eureka
 
-  gin:
-    build:
-      context: ./gin
-      dockerfile: ./Dockerfile
-    image: mlm-gin
-    ports:
-      - 8002:8002
-    depends_on:
-      - eureka
+  # gin:
+  #   build:
+  #     context: ./gin
+  #     dockerfile: ./Dockerfile
+  #   image: mlm-gin
+  #   ports:
+  #     - 8002:8002
+  #   depends_on:
+  #     - eureka
