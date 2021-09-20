@@ -30,8 +30,9 @@ func Hi(c *gin.Context) {
 func Hello(c *gin.Context) {
 	framework := c.Param("framework")
 
-	apps := discovery.GetServices().Applications
-	frameworkCapital := strings.Title(framework)
+	client := discovery.GetServices()
+	apps := client.Applications.Applications
+	frameworkCapital := strings.ToUpper(framework)
 	foundService := false
 
 	var hostname string

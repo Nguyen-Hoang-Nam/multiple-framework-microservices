@@ -4,10 +4,10 @@ import (
 	eureka "github.com/xuanbo/eureka-client"
 )
 
-var apps *eureka.Applications
+var client *eureka.Client
 
 func Init() {
-	client := eureka.NewClient(&eureka.Config{
+	client = eureka.NewClient(&eureka.Config{
 		DefaultZone:           "http://eureka:9000/eureka/",
 		App:                   "Gin",
 		Port:                  8002,
@@ -24,10 +24,8 @@ func Init() {
 	})
 
 	client.Start()
-
-	apps = client.Applications
 }
 
-func GetServices() *eureka.Applications {
-	return apps
+func GetServices() *eureka.Client {
+	return client
 }
