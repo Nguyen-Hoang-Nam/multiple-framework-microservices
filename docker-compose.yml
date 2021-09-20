@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  eureka:
+    build:
+      context: ./eureka
+      dockerfile: ./Dockerfile
+    image: mlm-eureka
+    ports:
+      - 9000:9000
+
+  spring:
+    build:
+      context: ./spring
+      dockerfile: ./Dockerfile
+    image: mlm-spring
+    ports:
+      - 8000:8000
+    depends_on:
+      - eureka
+
+  fastapi:
+    build:
+      context: ./fastapi
+      dockerfile: ./Dockerfile
+    image: mlm-fastapi
+    ports:
+      - 8001:8001
+    depends_on:
+      - eureka
