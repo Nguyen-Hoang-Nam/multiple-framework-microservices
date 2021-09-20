@@ -95,8 +95,6 @@ This is the core service which other services must support
 
 **cons:**
 
-- Large docker image size
-
 ### Express.JS
 
 **hostname:** express
