@@ -1,8 +1,8 @@
 # Multiple Framework Microservices
 
-This is the Microservices' template for several web frameworks.
+Bootstrap Microservices' template for several web frameworks.
 
-Currently, some services can not change such as discovery service (Eureka).
+Currently, some services can not be replaced such as discovery service (Eureka).
 
 ![Eureka](https://raw.githubusercontent.com/Nguyen-Hoang-Nam/readme-image/main/multiple-framework-microservices/eureka.jpg)
 
@@ -16,34 +16,26 @@ docker-compose up -d
 
 ## Usage
 
-You can send request between 2 services with this route
-`http://localhost:<current-service-port>/hello/<other-service>`
+You can send a request between 2 services with this route
+`http://localhost:{current port}/hello/{other hostname}`
 
 ![Route](https://raw.githubusercontent.com/Nguyen-Hoang-Nam/readme-image/main/multiple-framework-microservices/route.jpg)
 
 ## Services
 
-### Eureka
+| Hostname | Port | Route                                      |
+| -------- | ---- | ------------------------------------------ |
+| eureka   | 9000 | GET: localhost:9000                        |
+| spring   | 8000 | GET: localhost:8000/hello/{other hostname} |
+| fastapi  | 8001 | GET: localhost:8001/hello/{other hostname} |
+| gin      | 8002 | GET: localhost:8002/hello/{other hostname} |
+| express  | 8003 | GET: localhost:8003/hello/{other hostname} |
+
+## Eureka
 
 This is the core service which other services must support
 
-**hostname:** eureka
-
-**port:** 9000
-
-**route:**
-
-- GET: localhost:9000
-
-### Spring Boot
-
-**hostname:** spring
-
-**port:** 8000
-
-**route:**
-
-- GET: localhost:8000/hello/{other service}
+## Spring Boot
 
 **pros:**
 
@@ -56,15 +48,7 @@ This is the core service which other services must support
 - High memory usage
 - Large docker image size
 
-### FastAPI
-
-**hostname:** fastapi
-
-**port:** 8001
-
-**route:**
-
-- GET: localhost:8001/hello/{other service}
+## FastAPI
 
 **pros:**
 
@@ -76,15 +60,7 @@ This is the core service which other services must support
 
 - Hard to find microservice's documentation
 
-### Gin
-
-**hostname:** gin
-
-**port:** 8002
-
-**route:**
-
-- GET: localhost:8002/hello/{other service}
+## Gin
 
 **pros:**
 
@@ -92,18 +68,11 @@ This is the core service which other services must support
 - Focus on business logic
 - Rich microservices' documentation
 - Extremely low memory (5 MB)
+- Extremely low docker image size (multiple build stage 13 MB)
 
 **cons:**
 
-### Express.JS
-
-**hostname:** express
-
-**port:** 8003
-
-**route:**
-
-- GET: localhost:8003/hello/{other service}
+## Express
 
 **pros:**
 
@@ -113,7 +82,7 @@ This is the core service which other services must support
 
 **cons:**
 
-- Not much microservices' documentation
+- Not much microservices' documentations
 
 ## Contributing
 
