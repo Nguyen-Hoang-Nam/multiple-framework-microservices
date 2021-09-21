@@ -9,6 +9,14 @@ services:
     ports:
       - 9000:9000
 
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: ./Dockerfile
+    image: mlm-gateway
+    ports:
+      - 9001:9001
+
   spring:
     build:
       context: ./spring

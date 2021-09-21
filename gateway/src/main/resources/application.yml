@@ -1,0 +1,38 @@
+server:
+  port: 9001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:9000/eureka/
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: spring
+          uri: lb://spring
+          predicates:
+            - Path=/spring/**
+          filters:
+            - StripPrefix=1
+        - id: fastapi
+          uri: lb://fastapi
+          predicates:
+            - Path=/fastapi/**
+          filters:
+            - StripPrefix=1
+        - id: gin
+          uri: lb://gin
+          predicates:
+            - Path=/gin/**
+          filters:
+            - StripPrefix=1
+        - id: express
+          uri: lb://express
+          predicates:
+            - Path=/express/**
+          filters:
+            - StripPrefix=1
