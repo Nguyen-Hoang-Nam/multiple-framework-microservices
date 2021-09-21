@@ -39,21 +39,18 @@ public class SpringController {
     }
 
     @GetMapping(path = "/hello/{framework}")
-    public String hello(@PathVariable String framework) {
+    public Mono<SpringResponse> hello(@PathVariable String framework) {
         WebClient webClient = WebClient.create();
 
         SpringRequest springRequest = new SpringRequest("Spring");
 
         String serviceUrl = getBaseUrl(framework);
 
-        SpringResponse springResponse = webClient
+        return webClient
             .post()
             .uri(serviceUrl)
             .body(Mono.just(springRequest), SpringRequest.class)
             .retrieve()
-            .bodyToMono(SpringResponse.class)
-            .block();
-
-        return springResponse.getMessage();
+            .bodyToMono(SpringResponse.class);
     }
 }
