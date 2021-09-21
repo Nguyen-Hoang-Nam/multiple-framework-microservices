@@ -17,6 +17,13 @@ services:
     ports:
       - 9001:9001
 
+  prometheus:
+    image: prom/prometheus:v2.30.0
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
   spring:
     build:
       context: ./spring
