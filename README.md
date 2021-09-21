@@ -17,23 +17,35 @@ docker-compose up -d
 ## Usage
 
 You can send a request between 2 services with this route
-`http://localhost:{current port}/hello/{other hostname}`
+`http://localhost:9001/{hostname}/hello/{other hostname}`
 
 ![Route](https://raw.githubusercontent.com/Nguyen-Hoang-Nam/readme-image/main/multiple-framework-microservices/route.jpg)
 
 ## Services
 
-| Hostname | Port | Route                                      |
-| -------- | ---- | ------------------------------------------ |
-| eureka   | 9000 | GET: localhost:9000                        |
-| spring   | 8000 | GET: localhost:8000/hello/{other hostname} |
-| fastapi  | 8001 | GET: localhost:8001/hello/{other hostname} |
-| gin      | 8002 | GET: localhost:8002/hello/{other hostname} |
-| express  | 8003 | GET: localhost:8003/hello/{other hostname} |
+| Hostname | Port | Route                                                 |
+| -------- | ---- | ----------------------------------------------------- |
+| eureka   | 9000 | GET: localhost:9000                                   |
+| gateway  | 9001 | GET: localhost:9001/{hostname}/hello/{other hostname} |
+| spring   | 8000 | GET: localhost:8000/hello/{other hostname}            |
+| fastapi  | 8001 | GET: localhost:8001/hello/{other hostname}            |
+| gin      | 8002 | GET: localhost:8002/hello/{other hostname}            |
+| express  | 8003 | GET: localhost:8003/hello/{other hostname}            |
 
 ## Eureka
 
 This is the core service which other services must support
+
+## Spring Cloud Gateway
+
+**pros:**
+
+- Better configuration than Zuul
+- More portable
+
+**cons:**
+
+- Less documentation about working with Spring Netflix
 
 ## Spring Boot
 
