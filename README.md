@@ -21,6 +21,15 @@ You can send a request between 2 services with this route
 
 ![Route](https://raw.githubusercontent.com/Nguyen-Hoang-Nam/readme-image/main/multiple-framework-microservices/route.jpg)
 
+## Monitoring
+
+| App        | Port |
+| ---------- | ---- |
+| Prometheus | 9090 |
+| Grafana    | 3000 |
+
+![Grafana](https://raw.githubusercontent.com/Nguyen-Hoang-Nam/readme-image/main/multiple-framework-microservices/grafana.jpg)
+
 ## Services
 
 | Hostname | Port | Route                                                 |
